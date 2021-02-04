@@ -1,16 +1,14 @@
 //Write a program to find the volume of a tromboloid using one function
 #include<stdio.h>
-double vol(float h, float b, float d)
+float vol(float h, float b, float d)
 {
-  double m = h*d*b;
-  double db = d/b;
-  return (1/3)*(m + db);
+return ((h*d*b) + (d/b))/3;
 }
 int main()
 {
-  float h, b, d;
-  printf("Enter the dimensions(h, d and b): ");
-  scanf("%f%f%f",&h,&d,&b);
-  printf("The volume of the tromboloid is %lf\n",vol(h, b, d));
-  return 0;
+float h, b, d;
+printf("Enter the dimensions(h, d and b): ");
+scanf("%f%f%f",&h,&d,&b);
+printf("The volume of the tromboloid is %f\n",vol(h, b, d));
+return 0;
 }
