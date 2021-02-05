@@ -14,7 +14,7 @@ return val;
 }
 void disp(float d)
 {
-printf("The distance between the two points is %f\n");
+printf("The distance between the two points is %f\n", d);
 }
 int main()
 {
