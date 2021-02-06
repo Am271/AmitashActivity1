@@ -3,13 +3,11 @@
 int getnum()
 {
 int num;
-printf("> ");
 scanf("%d", &num);
 return num;
 }
-int add(int[] a)
+int add(int a[], int n)
 {
-int n = sizeof(a)/sizeof(int);
 int sum = 0;
 for(int i=0;i<n;i++)
 {
@@ -26,12 +24,13 @@ int main()
 int n, sum;
 printf("How many numbers do you want to add? ");
 scanf("%d", &n);
+int a[n];
 printf("Enter the numbers to be added: ");
 for(int i=0;i<n;i++)
 {
 a[i] = getnum();
 }
-sum = add(a);
+sum = add(a, n);
 disp(sum);
 return 0;
 }
