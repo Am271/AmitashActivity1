@@ -29,4 +29,5 @@ a = getpair();
 b = getpair();
 distance = dist(a, b);
 disp(distance);
+return 0;
 }
