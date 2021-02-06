@@ -1,10 +1,12 @@
 //Write a program to find the sum of n different numbers using 4 functions
 #include<stdio.h>
-int getnum()
+void getnum(int a[], int n)
 {
-int num;
-scanf("%d", &num);
-return num;
+printf("Enter the numbers to be added: ");
+for(int i=0;i<n;i++)
+{
+scanf("%d", &a[i]);
+}
 }
 int add(int a[], int n)
 {
@@ -25,11 +27,7 @@ int n, sum;
 printf("How many numbers do you want to add? ");
 scanf("%d", &n);
 int a[n];
-printf("Enter the numbers to be added: ");
-for(int i=0;i<n;i++)
-{
-a[i] = getnum();
-}
+getnum(a, n);
 sum = add(a, n);
 disp(sum);
 return 0;
