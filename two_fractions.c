@@ -9,9 +9,7 @@ frac getfrac()
 {
 frac x;
 printf("Enter the fraction (numerator and denominator): ");
-scanf("%d", &x.n);
-printf("/");
-scanf("%d", &x.d);
+scanf("%d%d", &x.n, &x.d);
 return x;
 }
 int main()
@@ -23,16 +21,17 @@ b = getfrac();
 sum.n = (a.n * b.d) + (b.n * a.d);
 sum.d = (a.d * b.d);
 if(sum.n > sum.d)
-{x = sum.d - 1;}
+{x = sum.d;}
 else
-{x = sum.n - 1;}
+{x = sum.n;}
 while(x > 1)
 {
-if(sum.n % x == 0 && sum.d % x == 0)
+if(sum.n > x && sum.n % x == 0 && sum.d > x && sum.d % x == 0)
 {
 sum.n /= x;
 sum.d /= x;
 }
+else
 x--;
 }
 printf("The sum of the fractions is %d/%d\n", sum.n, sum.d);
