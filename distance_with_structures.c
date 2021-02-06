@@ -8,13 +8,14 @@ int y;
 }pair;
 float dist(pair a, pair b)
 {
-return sqrt((pow((b.x - a.x), 2) + pow((b.y - a.y), 2));
+return sqrt(pow((b.x - a.x), 2) + pow((b.y - a.y), 2));
 }
 pair getpair()
 {
 pair a;
 printf("Enter a pair of coordinates(x and y): ");
-scanf("%d,%d",&a.x, &a.y);
+scanf("%d%d",&a.x, &a.y);
+return a;
 }
 void disp(float d)
 {
