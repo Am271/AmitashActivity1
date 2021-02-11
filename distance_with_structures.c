@@ -3,8 +3,8 @@
 #include<math.h>
 typedef struct pair
 {
-    int x;
-    int y;
+    float x;
+    float y;
 }pair;
 float dist(pair a, pair b)
 {
@@ -14,12 +14,12 @@ pair getpair()
 {
     pair a;
     printf("Enter a pair of coordinates(x and y): ");
-    scanf("%d%d",&a.x, &a.y);
+    scanf("%f%f",&a.x, &a.y);
     return a;
 }
-void disp(float d)
+void disp(float d, pair a, pair b)
 {
-    printf("The distance between the two points is %f\n", d);
+    printf("The distance between the point1 x: %f, y: %f and point2 x: %f, y: %f is %f\n", a.x, a.y, b.x, b.y, d);
 }
 int main()
 {
@@ -28,6 +28,6 @@ int main()
     a = getpair();
     b = getpair();
     distance = dist(a, b);
-    disp(distance);
+    disp(distance, a, b);
     return 0;
 }
