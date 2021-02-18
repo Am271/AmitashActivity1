@@ -1,7 +1,11 @@
 //Write the program to print "Hello World !"
 #include <stdio.h>
+void display()
+{
+    printf("My name is Amitash.\n");
+}
 int main()
 {
-    printf("My name is Amitash.");
+    display();
     return 0;
 }
