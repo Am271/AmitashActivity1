@@ -1,10 +1,10 @@
 //WAP to find the sum of n fractions.
-#include<stdio.h>
+#include <stdio.h>
 typedef struct fraction
 {
     int n;
     int d;
-}frac;
+} frac;
 frac getfrac()
 {
     frac a;
@@ -17,7 +17,7 @@ int inputfrac(frac a[])
     int n;
     printf("Enter number of fractions: ");
     scanf("%d", &n);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         a[i] = getfrac();
     }
@@ -25,17 +25,18 @@ int inputfrac(frac a[])
 }
 frac add(frac a[], int n)
 {
-    frac sum; int x;
+    frac sum;
+    int x;
     sum.n = a[0].n;
     sum.d = a[0].d;
-    for(int i=1;i<n;i++)
+    for (int i = 1; i < n; i++)
     {
         sum.n = (sum.n * a[i].d) + (a[i].n * sum.d);
         sum.d *= a[i].d;
     }
-    for(int i=1;i <= sum.n && i <= sum.d;i++)
+    for (int i = 1; i <= sum.n && i <= sum.d; i++)
     {
-        if(sum.n % i == 0 && sum.d % i == 0)
+        if (sum.n % i == 0 && sum.d % i == 0)
             x = i;
     }
     sum.n /= x;
@@ -45,12 +46,12 @@ frac add(frac a[], int n)
 void disp(frac a[], frac b, int n)
 {
     int i = 0;
-    while(i<n-1)
+    while (i < n - 1)
     {
         printf("%d/%d + ", a[i].n, a[i].d);
         i++;
     }
-    printf("%d/%d = %d/%d", a[n-1].n, a[n-1].d, b.n, b.d);
+    printf("%d/%d = %d/%d\n", a[n - 1].n, a[n - 1].d, b.n, b.d);
 }
 int main()
 {
