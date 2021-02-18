@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 float vol(float h, float b, float d);
 float getv();
 void input(float *h, float *d, float *b);
@@ -12,11 +12,11 @@ int main()
 }
 float vol(float h, float d, float b)
 {
-    return ((h*d*b)+(d/b))/3;
+    return ((h * d * b) + (d / b)) / 3;
 }
 void input(float *h, float *d, float *b)
 {
-	printf("Enter h, d and b values: ");
+    printf("Enter h, d and b values: ");
     *h = getv();
     *d = getv();
     *b = getv();
@@ -29,5 +29,5 @@ float getv()
 }
 void disp(float v)
 {
-    printf("The volume of the tromboloid is %f\n",v);
+    printf("The volume of the tromboloid is %f\n", v);
 }
