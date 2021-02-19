@@ -5,6 +5,22 @@ typedef struct fraction
     int n; //numerator
     int d; //denominator
 } frac;
+int getgcd(frac sum)
+{
+    int x;
+    for (int i = 1; i <= sum.n && i <= sum.d; i++)
+    {
+        if (sum.n % i == 0 && sum.d % i == 0)
+            x = i;
+    }
+    return x;
+}
+frac reducefrac(frac sum, int x)
+{
+    sum.n /= x;
+    sum.d /= x;
+    return sum;
+}
 frac getfrac()
 {
     frac x;
@@ -15,16 +31,11 @@ frac getfrac()
 frac add(frac a, frac b)
 {
     frac sum;
-    int x;
+    int gcd;
     sum.n = (a.n * b.d) + (b.n * a.d);
     sum.d = (a.d * b.d);
-    for (int i = 1; i <= sum.n && i <= sum.d; i++)
-    {
-        if (sum.n % i == 0 && sum.d % i == 0)
-            x = i;
-    }
-    sum.n /= x;
-    sum.d /= x;
+    gcd = getgcd(sum);
+    sum = reducefrac(sum, gcd);
     return sum;
 }
 void display(frac sum)
