@@ -1,8 +1,10 @@
 #include<stdio.h>
+
 typedef struct frac {
 	int n;
 	int d;
 }fraction;
+
 typedef struct ins {
 	int k;
 	fraction f[100];
@@ -21,28 +23,29 @@ void input(set *x) {
 }
 
 int gcd(int x, int y) {
-	if(x == 0)
-		return y;
-	return gcd(y%x, x);
+	if (x == 0)
+        return y;
+    return gcd(y%x, x);
 }
 
 void comp(set *x, fraction *sum) {
 	int g;
-	sum->n = x->f[0].n;
-	sum->d = x->f[0].d;
-	for(int i=1;i<x->k;i++) {
-		sum->n = (sum->d * x->f[i].n) + (sum->n * x->f[i].d);
+	sum->n = 1;
+	sum->d = 1;
+	for(int i=0;i<x->k;i++) {
+		if(i != 0)
+			sum->n = sum->d + (x->f[i].d * sum->n);
 		sum->d = sum->d * x->f[i].d;
 	}
 	g = gcd(sum->n, sum->d);
-sum->n /= g;
-sum->d /= g;
+	sum->n /= g;
+	sum->d /= g;
 }
 
 void disp(set a, fraction sum) {
 	for(int i=0;i<a.k-1;i++)
 		printf("%d/%d + ", a.f[i].n, a.f[i].d);
-	printf("%d/%d = %d/%d\n", a.f[k-1].n, a.f[k-1].d, sum.n, sum.d);
+	printf("%d/%d = %d/%d\n", a.f[a.k-1].n, a.f[a.k-1].d, sum.n, sum.d);
 }
 
 int main() {
@@ -50,11 +53,11 @@ int main() {
 	set a[100];
 	fraction sum;
 	getn(&n);
-  for(int i=0;i<n;i++)
-		input(&a[i]);
 	for(int i=0;i<n;i++)
+		input(&a[i]);
+	for(int i=0;i<n;i++) {
 		comp(&a[i], &sum);
 		disp(a[i], sum);
-  }
-  return 0;
+	}
+	return 0;
 }
